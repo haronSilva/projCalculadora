@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "openapi":"Teste",
+    "info": {
+        "version": "1.0.0",
+        "title": "Calculadora API",
+        "description": "Especificação do projeto calculadora",
+        "contact" : {
+            "name" : "haron.silva@gmail.com",
+            "email" : "haron.silva@gmail.com"
+        }
+    },
+    "tag" : {
+        "name" : "teste"
+    },
+    "schemes": [
+        "http"
+    ],
+    
+    "servers" : [{
+      "url":"http://localhost:3003"  
+    }, {
+        "url" :"http://desenv.teste:8080"
+    }],
+    "basePath": "",
+    "paths": {
+        "/soma" : {
+            "get" : {
+                "description":"Retorna a soma mais um dados o parâmetro de entrada",
+                "parameters" : [
+                    {
+                     "name" : "numero",
+                     "in": "query",
+                     "description":"Número para realizar a soma entre dois números"
+                    }
+
+                ],
+                "responses" : {
+                    "200" : {
+                        "schema":{
+                            "type":"string"
+                            
+                        }
+                    }
+                }
+            }
+        },
+        "/calculo-salario-pj" : {
+            "get" : {
+                "description" : "Retorna o salário bruto de um colaborador pj",
+                "parameters" :[
+                    {
+                        "name" : "valorHora",
+                        "in" : "query",
+                        "description" : "Valor acordado para o profissional"
+                    } ,
+                    {
+                        "name" : "totalHorasProduzidas",
+                        "in" : "query",
+                        "description" : "Total de horas produzidas no mês"
+                    }
+                ],
+                "responses" : {
+                    "200" : {
+                        "schema" :{
+                            "type":"string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
